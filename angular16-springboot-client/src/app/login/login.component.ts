@@ -28,7 +28,9 @@ export class LoginComponent {
                     localStorage.setItem("token",this.token.valueOf());
                     this.router.navigate(["employees"]);
                   }
-                },(error)=>{ console.error(error)});
+                },(error)=>{ console.error(error)},
+                  ()=>{ console.info("AuthenticateAndGetToken call completed.")}
+                );
           }else{
              alert("login failed");
           }
@@ -38,9 +40,9 @@ export class LoginComponent {
      
         if(this.user.password&& this.user.name){
           this.loginService.signup({"name":this.user.name,"password":this.user.password,"roles":"ROLE_USER"})
-          .subscribe(
-              (data) =>console.log(data),(error) => console.error(error)
-          );
+          .subscribe({
+              next:(data) =>console.log(data),error:(error) => console.error(error),complete:()=>console.info("signup call completed.")
+        });
         }else{
          alert("please fill the details.")
         }
