@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { LoginService } from './login/login.service';
 import { Router } from '@angular/router';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +13,20 @@ export class AppComponent {
 
   constructor(private loginService:LoginService,private router:Router){
 
+    //
+    const ob = of("a","b","c","d","e");
+    const obk =ob.subscribe({ 
+      
+        next(v){
+          console.info(v);
+        },
+        error(e){
+          console.error(e);
+        },
+        complete(){
+          console.info("completed");
+        }      
+      });
   }
 
   logout(){

@@ -22,19 +22,17 @@ export class LoginComponent {
     login(){
           if(this.user.password&& this.user.name){
                 this.loginService.authenticateAndGetToken({"username":this.user.name,"password":this.user.password,"roles":"ROLE_USER"})
-                .subscribe(
-                    data => this.token=data,error => this.token=error.error.text
-                );
-                if(this.token!=null){
-                  localStorage.setItem("token",this.token.valueOf());
-                  this.router.navigate(["employees"]);
-                }
+                .subscribe((data)=>{
+                  this.token=data.toString();
+                  if(this.token!=null && this.token!=''){
+                    localStorage.setItem("token",this.token.valueOf());
+                    this.router.navigate(["employees"]);
+                  }
+                });
           }else{
              alert("login failed");
           }
     }
-
-  
 
     signup(){
      

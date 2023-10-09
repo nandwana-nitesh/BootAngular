@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from './user';
 
@@ -17,8 +17,16 @@ export class LoginService {
     
   }
 
-  authenticateAndGetToken(user: any): Observable<String> {
-    return this.http.post<String>(this.baseUrl,user);
+  authenticateAndGetToken(user: any) {
+    let HTTPOptions:Object = {
+
+      headers: new HttpHeaders({
+          'Content-Type': 'application/json'
+      }),
+      responseType: 'text'
+   } 
+    const body=JSON.stringify(user);
+    return this.http.post<String>(this.baseUrl,body,HTTPOptions);
   }
 
   
