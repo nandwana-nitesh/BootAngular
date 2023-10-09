@@ -27,14 +27,13 @@ export class UpdateEmployeeComponent implements OnInit {
     
     this.employeeService.getEmployee(this.id)
       .subscribe(data => {
-        console.log(data)
         this.employee = data;
       }, error => console.log(error));
   }
 
   updateEmployee() {
     this.employeeService.updateEmployee(this.id, this.employee)
-      .subscribe(data => console.log(data), error => console.log(error));
+      .subscribe(data => console.log(data), error => console.error(error));
     this.employee = new Employee(0,'','','',true);
     this.gotoList();
   }
