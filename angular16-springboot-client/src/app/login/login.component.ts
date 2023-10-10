@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { User } from './user';
 import { LoginService } from './login.service';
 import { of } from 'rxjs';
+import { SampleService } from '../sample.service';
 
 @Component({
   selector: 'app-login',
@@ -14,9 +15,11 @@ export class LoginComponent {
     user:User;
     token:String="";
    
-    constructor(private route: ActivatedRoute,private router: Router,
+    constructor(private route: ActivatedRoute,private router: Router,private sampleService:SampleService,
       private loginService: LoginService) { 
         this.user = new User(0,'','','',"");
+        this.sampleService.getMessage().subscribe(msg=>alert(msg));
+        this.sampleService.setMessage("Hello! from Login Component.");
       }
 
     login(){

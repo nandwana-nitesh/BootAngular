@@ -1,12 +1,21 @@
 import { Injectable } from '@angular/core';
-import { filter, from, map, of, pluck } from 'rxjs';
+import { BehaviorSubject, filter, from, map, of, pluck } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SampleService {
 
+  private _message = new BehaviorSubject("Hello!!, from Sample Service.");
+  
   constructor() { }
+
+  public getMessage() {
+    return this._message.asObservable();
+  }
+  public setMessage(msg:string) {
+    this._message.next(msg);
+  }
 
   test(){
 

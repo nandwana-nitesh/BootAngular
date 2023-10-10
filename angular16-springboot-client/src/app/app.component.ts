@@ -13,7 +13,9 @@ export class AppComponent {
   title = 'Angular 16 + Spring Boot 3 CRUD Tutorial';
 
   constructor(private loginService:LoginService,private router:Router,private sampleService:SampleService){
-    this.sampleService.test(); 
+    this.sampleService.test();
+    this.sampleService.getMessage().subscribe(msg=>alert(msg));
+    this.sampleService.setMessage("Hello!! , from App Component."); 
   }
 
   logout(){
