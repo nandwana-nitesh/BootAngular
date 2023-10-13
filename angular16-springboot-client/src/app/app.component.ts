@@ -3,6 +3,7 @@ import { LoginService } from './login/login.service';
 import { Router } from '@angular/router';
 import { of } from 'rxjs';
 import { SampleService } from './sample.service';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -11,10 +12,12 @@ import { SampleService } from './sample.service';
 })
 export class AppComponent {
   title = 'Angular 16 + Spring Boot 3 CRUD Tutorial';
-
-  constructor(private loginService:LoginService,private router:Router,private sampleService:SampleService){
+  show = true;
+  color= "blue"
+  
+  constructor(private loginService:LoginService,private router:Router,private sampleService:SampleService,private fb:FormBuilder){
     this.sampleService.test();
-    this.sampleService.getMessage().subscribe(msg=>alert(msg));
+    this.sampleService.getMessage().subscribe(msg=>console.info(msg));
     this.sampleService.setMessage("Hello!! , from App Component."); 
   }
 

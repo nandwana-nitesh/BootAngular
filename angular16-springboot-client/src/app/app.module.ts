@@ -12,6 +12,8 @@ import { LoginComponent } from './login/login.component';
 import { LoginService } from './login/login.service';
 import { AuthHttpinterceptor } from './authhttpinterceptor';
 import { authGuard } from './auth.guard';
+import { MyclassDirective } from './myclass.directive';
+import { MyIfDirective } from './my-if.directive';
 
 
 @NgModule({
@@ -21,7 +23,9 @@ import { authGuard } from './auth.guard';
     EmployeeDetailsComponent,
     EmployeeListComponent,
     UpdateEmployeeComponent,
-    LoginComponent
+    LoginComponent,
+    MyclassDirective,
+    MyIfDirective
   ],
   imports: [
     BrowserModule,

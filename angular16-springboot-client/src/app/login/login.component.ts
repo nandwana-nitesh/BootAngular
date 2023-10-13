@@ -18,7 +18,7 @@ export class LoginComponent {
     constructor(private route: ActivatedRoute,private router: Router,private sampleService:SampleService,
       private loginService: LoginService) { 
         this.user = new User(0,'','','',"");
-        this.sampleService.getMessage().subscribe(msg=>alert(msg));
+        this.sampleService.getMessage().subscribe(msg=>console.info(msg));
         this.sampleService.setMessage("Hello! from Login Component.");
       }
 
@@ -40,7 +40,6 @@ export class LoginComponent {
     }
 
     signup(){
-     
         if(this.user.password&& this.user.name){
           this.loginService.signup({"name":this.user.name,"password":this.user.password,"roles":"ROLE_USER"})
           .subscribe({
@@ -50,5 +49,4 @@ export class LoginComponent {
          alert("please fill the details.")
         }
     }
-  
 }
