@@ -8,6 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { authGuard } from './auth.guard';
 import { ParentComponent } from './parent/parent.component';
 import { ChildComponent } from './child/child.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'add', component: CreateEmployeeComponent,canActivate:[authGuard] },
   { path: 'update/:id', component: UpdateEmployeeComponent,canActivate:[authGuard] },
   { path: 'details/:id', component: EmployeeDetailsComponent,canActivate:[authGuard] },
+  {path:"**",component:NotFoundComponent}
 ];
 
 @NgModule({

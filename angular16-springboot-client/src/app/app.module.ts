@@ -16,6 +16,7 @@ import { MyclassDirective } from './myclass.directive';
 import { MyIfDirective } from './my-if.directive';
 import { ParentComponent } from './parent/parent.component';
 import { ChildComponent } from './child/child.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { ChildComponent } from './child/child.component';
     MyclassDirective,
     MyIfDirective,
     ParentComponent,
-    ChildComponent
+    ChildComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
