@@ -1,0 +1,8 @@
+<ul>
+    <li *ngFor="let item of items" style="background-color: brown;"> {{item}}      
+    </li>
+</ul>    
+
+
+<input type="text" #newItem id="item">
+<button type="button" (click)="removeItem(newItem.value)">Remove</button>

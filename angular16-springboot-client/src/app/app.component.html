@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark" [myclass]="color" *myIf="show">
   <!-- Links -->
   <ul class="navbar-nav">
     <li class="nav-item">
@@ -8,8 +8,14 @@
         <a routerLink="add" class="nav-link" routerLinkActive="active">Add Employee</a>
     </li>
     <li class="nav-item">
+      <a routerLink="parent" class="nav-link" routerLinkActive="active">parent</a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="child" class="nav-link" routerLinkActive="active">child</a>
+    </li>
+    <li class="nav-item">
       <a (click)="logout()" class="nav-link" routerLinkActive="active">Logout</a>
-  </li>
+    </li>
   </ul>
 </nav>
 
@@ -26,6 +32,19 @@
 </div>
 
 <footer class="footer">
+  <label>Do you want header ? </label>
+  <input  type="checkbox" [(ngModel)]="show">
+
+  <label>Please choose header color </label>
+
+  <input type="radio" id="red" name="red" value="red" [(ngModel)]="color">
+  <label for="red">red</label>
+
+  <input type="radio" id="blue" name="blue" value="blue" [(ngModel)]="color">
+  <label for="blue">blue</label>
+
+  <input type="radio" id="green" name="green" value="green" [(ngModel)]="color">
+  <label for="green">green</label>
   <!-- <div class="container">
       <span>angular boot</span>
   </div> -->

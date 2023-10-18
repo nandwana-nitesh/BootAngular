@@ -14,6 +14,8 @@ import { AuthHttpinterceptor } from './authhttpinterceptor';
 import { authGuard } from './auth.guard';
 import { MyclassDirective } from './myclass.directive';
 import { MyIfDirective } from './my-if.directive';
+import { ParentComponent } from './parent/parent.component';
+import { ChildComponent } from './child/child.component';
 
 
 @NgModule({
@@ -25,7 +27,9 @@ import { MyIfDirective } from './my-if.directive';
     UpdateEmployeeComponent,
     LoginComponent,
     MyclassDirective,
-    MyIfDirective
+    MyIfDirective,
+    ParentComponent,
+    ChildComponent
   ],
   imports: [
     BrowserModule,
