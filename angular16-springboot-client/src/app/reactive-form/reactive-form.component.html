@@ -1,0 +1,18 @@
+<form [formGroup]="myFormGroup" (ngSubmit)="submit()">
+    <div *ngFor="let chk of chkArray;">
+        <label>
+            <input type="checkbox" (change)="onChangeChk($event)" [checked]="chk.selected" [name]="chk.name" [value]="chk.value"/>
+            {{chk.value}}
+        </label>
+    </div>
+    <input type="text" formControlName="name">
+    <p style="background-color: red;" *ngIf="this.myFormGroup.controls['checkboxes'].errors?.['required']">
+         Checkbox is required, select atleast one value.
+    </p>
+    <p style="background-color: red;" *ngIf="this.myFormGroup.controls['name'].errors?.['required']">
+        enter name is required.
+   </p>
+    <input type="submit" [textContent]="submit">
+</form>
+<!-- 
+https://build-break-learn.signin.aws.amazon.com/console -->

@@ -14,6 +14,9 @@
       <a routerLink="child" class="nav-link" routerLinkActive="active">child</a>
     </li>
     <li class="nav-item">
+      <a routerLink="reactive" class="nav-link" routerLinkActive="active">reactive</a>
+    </li>
+    <li class="nav-item">
       <a (click)="logout()" class="nav-link" routerLinkActive="active">Logout</a>
     </li>
   </ul>
@@ -23,6 +26,7 @@
 <div class="container">
   <br>
   <h2 style="text-align: center;">{{title}}</h2>
+  <input [value]="title"/>
   <hr>  
   <div class="card">
     <div class="card-body">
@@ -30,7 +34,8 @@
     </div>
   </div>
 </div>
-
+<button style="padding: 20px; color: white; background-color: green;" routerLink="a">Load Module A</button>
+<button style="padding: 20px; color: white; background-color: blue;" routerLink="b">Load Module B</button>
 <footer class="footer">
   <label>Do you want header ? </label>
   <input  type="checkbox" [(ngModel)]="show">

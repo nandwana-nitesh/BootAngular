@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CreateEmployeeComponent } from './create-employee/create-employee.component';
@@ -17,6 +17,7 @@ import { MyIfDirective } from './my-if.directive';
 import { ParentComponent } from './parent/parent.component';
 import { ChildComponent } from './child/child.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 
 
 @NgModule({
@@ -31,13 +32,15 @@ import { NotFoundComponent } from './not-found/not-found.component';
     MyIfDirective,
     ParentComponent,
     ChildComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ReactiveFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [LoginService,[{provide:HTTP_INTERCEPTORS,useClass:AuthHttpinterceptor,multi:true}]],
   bootstrap: [AppComponent]
