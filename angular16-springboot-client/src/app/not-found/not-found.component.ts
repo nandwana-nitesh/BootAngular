@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./not-found.component.css']
 })
 export class NotFoundComponent {
-
+  stringInterpolation="page not found , please check url!!";
+  booleandoesntwork=true;
 }

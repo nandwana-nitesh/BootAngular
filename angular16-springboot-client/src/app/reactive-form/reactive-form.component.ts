@@ -19,7 +19,9 @@ export class ReactiveFormComponent{
         name:new FormControl('',Validators.required)}
        );
     }
-   
+   get name(){
+    return this.myFormGroup.get("name") as FormControl;
+   }
     onChangeChk(event:any){
       const chkControl= this.myFormGroup.get("checkboxes") as FormArray;
      

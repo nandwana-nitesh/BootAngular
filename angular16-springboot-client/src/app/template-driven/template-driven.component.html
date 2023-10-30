@@ -1,0 +1,37 @@
+<div [hidden]="submitted">
+    <h1>Hero Form!</h1>
+    <form (ngSubmit)="onSubmit()" #heroFrm="ngForm">
+        <label for="name">Name</label>
+        <input type="text" id="name" [(ngModel)]="hero.name" name="name"  #na="ngModel" required>
+        <div [hidden]="!na.errors?.['required']">Name is required !</div>
+
+        <label for="alterEgo">Alter Ego</label>
+        <input type="text" id="alterEgo" [(ngModel)]="hero.alterEgo" name="alterEgo">
+
+        <label for="power">Power</label>
+        <select name="power" [(ngModel)]="hero.power" #po="ngModel" required>
+            <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>
+        </select>
+        <div [hidden]="!po.errors?.['required']">Power is required.</div>
+
+        <button [disabled]="!heroFrm.form.valid" type="submit">Submit</button>
+        <button  type="button" (click)="newHero();heroFrm.reset();">Reset</button>
+    </form>
+</div>
+
+<div [hidden]="!submitted">
+    <h2>you have submitted following details :</h2>
+    <label for="nameEdit">Name</label>
+    <input id="nameEdit" [value]="hero.name" disabled>
+
+    <label for="alterEgoEdit"></label>
+    <input id="alterEgoEdit" [value]="hero.alterEgo" disabled>
+
+    <label for="powerEdit">Power</label>
+    <select id="powerEdit">
+        <option [value]="hero.power">{{hero.power}}</option>
+    </select>
+    <button (click)="submitted=false;">Edit</button>
+
+</div>
+

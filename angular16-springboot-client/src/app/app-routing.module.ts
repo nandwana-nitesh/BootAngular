@@ -23,7 +23,9 @@ const routes: Routes = [
   { path: 'details/:id', component: EmployeeDetailsComponent,canActivate:[authGuard] },
   { path: 'a', loadChildren: () => import('./modulea/modulea.module').then(m => m.ModuleaModule) },
   { path: 'b', loadChildren: () => import('./moduleb/moduleb.module').then(m => m.ModulebModule) },
-  {path:"**",component:NotFoundComponent}
+  { path: 'template2', loadChildren: () => import('./template-driven/template-driven.module').then(m => m.TemplateDrivenModule) },
+  { path: 'reactive2', loadChildren: () => import('./reactive-from2/reactive-from2.module').then(m => m.ReactiveFrom2Module) },
+  { path:"**",component:NotFoundComponent }
 ];
 
 @NgModule({

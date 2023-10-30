@@ -1,0 +1,47 @@
+<div>
+    <form [formGroup]="myFormGroup" (ngSubmit)="submit()">
+       <div>
+            <label for="firstName">First Name</label>
+            <input id="firstName" [formControl]="firstName">
+            <div [hidden]="!(firstName.errors?.['required'] && (firstName.touched || firstName.dirty))">
+                First name is mandatory field.
+            </div>
+        </div>
+        <div>
+            <label for="lastName">Last Name</label>
+            <input  id="lastName" [formControl]="lastName">
+        </div>
+
+        <div [formGroup]="address">Address
+            <div>
+                <label for="street">street</label>
+                <input type="text" [formControl]="street" id="street">
+            </div>
+            <div>
+                <label for="zip">zip</label>
+                <input type="text" [formControl]="zip" id="zip">
+            </div>
+            <div>
+                <label for="city">street</label>
+                <input type="text" [formControl]="city" id="city">
+            </div>
+            <div>
+                <label for="state">state</label>
+                <input type="text" [formControl]="state" id="state">
+            </div>
+        </div>
+        <div formArrayName="aliases">
+            <h3>aliases</h3>
+            <button (click)="addAlias()">Add alias</button>
+            <div *ngFor="let alias of aliases.controls;let i=index">
+                <label for="alias{{i}}">Alias{{i}}</label>
+                <input id="alias{{i}}" type="text" [formControlName]="i">
+            </div>
+        </div> 
+        <p>{{myFormGroup.value | json}}</p>
+        <p>{{myFormGroup.status}}</p>
+        <button [disabled]="!myFormGroup.valid" type="submit">Submit</button>
+        
+    </form>
+    
+</div>

@@ -5,14 +5,14 @@
             {{chk.value}}
         </label>
     </div>
-    <input type="text" formControlName="name">
+    <input type="text" [formControl]="name">
     <p style="background-color: red;" *ngIf="this.myFormGroup.controls['checkboxes'].errors?.['required']">
          Checkbox is required, select atleast one value.
     </p>
-    <p style="background-color: red;" *ngIf="this.myFormGroup.controls['name'].errors?.['required']">
+    <p style="background-color: red;" *ngIf="this.myFormGroup.controls['name'].errors?.['required'] && (this.myFormGroup.controls['name'].dirty || this.myFormGroup.controls['name'].touched)">
         enter name is required.
    </p>
-    <input type="submit" [textContent]="submit">
+    <input type="submit">
 </form>
 <!-- 
 https://build-break-learn.signin.aws.amazon.com/console -->
