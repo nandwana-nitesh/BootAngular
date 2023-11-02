@@ -18,6 +18,7 @@ import { ParentComponent } from './parent/parent.component';
 import { ChildComponent } from './child/child.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
+import { ObservableComponent } from './observable/observable.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
     ParentComponent,
     ChildComponent,
     NotFoundComponent,
-    ReactiveFormComponent
+    ReactiveFormComponent,
+    ObservableComponent
   ],
   imports: [
     BrowserModule,

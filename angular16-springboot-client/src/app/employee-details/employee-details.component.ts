@@ -2,7 +2,7 @@ import { Employee } from '../employee';
 import { Component, OnInit, Input } from '@angular/core';
 import { EmployeeService } from '../employee.service';
 import { EmployeeListComponent } from '../employee-list/employee-list.component';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, RouterState } from '@angular/router';
 
 @Component({
   selector: 'app-employee-details',
@@ -15,7 +15,7 @@ export class EmployeeDetailsComponent implements OnInit {
   id: number;
   employee: Employee;
 
-  constructor(private route: ActivatedRoute,private router: Router,
+  constructor(private activatedRoute: ActivatedRoute,private router: Router,
     private employeeService: EmployeeService) { 
       this.employee = new Employee(0,'','','',true);
       this.id=0;
@@ -24,7 +24,9 @@ export class EmployeeDetailsComponent implements OnInit {
   ngOnInit() {
     this.employee = new Employee(0,'','','',true);
 
-    this.id = this.route.snapshot.params['id'];
+    this.id = this.activatedRoute.snapshot.params['id'];
+    console.info("this.activatedRoute.snapshot.url : "+this.activatedRoute.snapshot.url.toString());
+
     
     this.employeeService.getEmployee(this.id)
       .subscribe(data => {

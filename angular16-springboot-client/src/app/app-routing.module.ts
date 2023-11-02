@@ -10,6 +10,7 @@ import { ParentComponent } from './parent/parent.component';
 import { ChildComponent } from './child/child.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
+import { ObservableComponent } from './observable/observable.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'parent', component: ParentComponent },
   { path: 'child', component: ChildComponent },
   { path:"reactive",component:ReactiveFormComponent},
+  { path:"observer",component:ObservableComponent},
   { path: 'employees', component: EmployeeListComponent,canActivate:[authGuard]},
   { path: 'add', component: CreateEmployeeComponent,canActivate:[authGuard] },
   { path: 'update/:id', component: UpdateEmployeeComponent,canActivate:[authGuard] },
